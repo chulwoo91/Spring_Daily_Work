@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="book1" class="exam_02_beans_xml_tag.BookEntity">
+		<property name="btitle">
+			<value>It is getting tired</value>
+		</property>
+		<property name="bauthor" value="chulwoo"></property>
+	</bean>
+
+	<bean id="book2" class="exam_02_beans_xml_tag.BookEntity">
+		<property name="btitle">
+			<value>springspring</value>
+		</property>
+		<property name="bauthor" value="teddy"></property>
+	</bean>
+
+	<bean id="book3" class="exam_02_beans_xml_tag.BookEntity">
+		<property name="btitle">
+			<value>hahahahahahah</value>
+		</property>
+		<property name="bauthor" value="theodore"></property>
+	</bean>
+	
+	<bean id="bookshelf" class="exam_02_beans_xml_tag.BookShelf">
+		<property name="shelfName" value="Random"></property>
+		<property name="shelfPrice" value="15000"></property> <!-- shelfPrice는 int형이지만 xml에서는 value는 무조건 ""를 써야하고 나중에 알아서 데이터형을 인식한다 -->
+		<property name="list">
+			<list>
+				<ref bean="book1" />	<!-- arraylist이기 때문에 <list> 태그를 이용해서 정보를 순차적으로 입력해주어야 한다. -->
+				<ref bean="book2" />
+				<ref bean="book3" />
+			</list>
+		</property>
+		<property name="map">
+			<map>
+				<entry key="1" value-ref="book1"></entry> <!-- value값은 객체이기 때문에 ref를 추가해준다. -->
+				<entry key="2" value-ref="book2"></entry>
+				<entry key="3" value-ref="book3"></entry>
+			</map>
+		</property>
+	</bean>
+
+</beans>

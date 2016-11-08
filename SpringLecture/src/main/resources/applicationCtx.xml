@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dao" class="dailyWork1.BookDAO" />
+	
+	<bean id="bookService" class="dailyWork1.BookService">
+		<constructor-arg> <!-- constructor의 인자가 여러개면 이를 해당 개수 만큼 반복해줘야 한다. -->
+			<ref bean="dao" />
+		</constructor-arg>
+		
+		<property name="keyword">
+			<value></value>
+		</property>
+	</bean>
+	
+
+</beans>
